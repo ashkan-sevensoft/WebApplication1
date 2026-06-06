@@ -137,5 +137,29 @@ namespace WebApplication1.Controllers
             return Ok(student);
 
         }
+
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var existStudent = await _context.students.AnyAsync(x => x.Id == id);
+            if (!existStudent)
+                return BadRequest($"Student With Id : {id} was not Existt");
+
+
+          
+            var student = await _context.students.FirstOrDefaultAsync(x => x.Id == id);
+
+            student.IsDelted = true;
+            student.DeletedAt = DateTime.UtcNow;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(true);
+
+        }
+
+
+         
     }
 }
