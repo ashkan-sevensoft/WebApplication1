@@ -1,6 +1,6 @@
 ﻿namespace WebApplication1.Entities
 {
-    public class Enrollment
+    public class Enrollment : BaseEntity
     {
       
         public Guid StudentId { get; set; }
