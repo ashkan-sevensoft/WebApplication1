@@ -9,7 +9,7 @@ namespace WebApplication1.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class StudentController : ControllerBase
+    public class StudentsController : ControllerBase
     {
         private readonly AppDbContext _context;
         ///Repo
@@ -21,7 +21,7 @@ namespace WebApplication1.Controllers
 
 
 
-        public StudentController(AppDbContext context)
+        public StudentsController(AppDbContext context)
         {
             _context = context;
 
